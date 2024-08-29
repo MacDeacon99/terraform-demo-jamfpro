@@ -1,10 +1,10 @@
 resource "jamfpro_category" "jamfpro_category_001" {
-  name     = "tf-ghatest-operating-system"
+  name     = "tf-gd-ghatest-operating-system"
   priority = 10
 }
 
 resource "jamfpro_category" "jamfpro_category_002" {
-  name     = "tf-ghatest-self-service"
+  name     = "tf-gd-ghatest-self-service"
   priority = 10
 }
 

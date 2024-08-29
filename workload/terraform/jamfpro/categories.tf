@@ -1,11 +1,11 @@
 resource "jamfpro_category" "jamfpro_category_001" {
-  name     = "tf-gd-ghatest-operating-system"
-  priority = 10
+  name     = "tf-gd-ghatest-config-profile"
+  priority = 2
 }
 
 resource "jamfpro_category" "jamfpro_category_002" {
-  name     = "tf-gd-ghatest-self-service"
-  priority = 10
+  name     = "tf-gd-ghatest-policy"
+  priority = 5
 }
 
 # resource "jamfpro_category" "jamfpro_category_003" {

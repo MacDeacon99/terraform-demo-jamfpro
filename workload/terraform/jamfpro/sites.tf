@@ -10,3 +10,6 @@ resource "jamfpro_site" "jamfpro_site_003" {
   name = "tf-gd-ghatest-site-italy"
 }
 
+resource "jamfpro_site" "jamfpro_site_004" {
+  name = "tf-gd-ghatest-site-brazil"
+}

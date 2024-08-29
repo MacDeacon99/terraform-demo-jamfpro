@@ -31,7 +31,7 @@ resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuratio
   name                = "tf-gd-ghatest-dt-mcp-background_notifications-prod-v0.0.1"
   distribution_method = "Install Automatically"
   payloads            = file("${path.module}/support_files/configuration_profiles/dt-mcp-background_notifications-prod-v0.0.1.mobileconfig")
-  category_id         = jamfpro_category.jamfpro_category_001.id
+  category_id         = -1
   user_removable      = false
   level               = "System"
   redeploy_on_update  = "Newly Assigned"
@@ -45,7 +45,7 @@ resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuratio
   name                = "tf-gd-ghatest-dt-mcp-block_beta_updates-prod-v0.0.1"
   distribution_method = "Install Automatically"
   payloads            = file("${path.module}/support_files/configuration_profiles/dt-mcp-block_beta_updates-prod-v0.0.1.mobileconfig")
-  category_id         = jamfpro_category.jamfpro_category_001.id
+  category_id         = -1
   user_removable      = false
   level               = "System"
   redeploy_on_update  = "Newly Assigned"

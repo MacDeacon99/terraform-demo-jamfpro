@@ -22,3 +22,9 @@ resource "jamfpro_dock_item" "jamfpro_dock_item_GD_001" {
   type = "App"
   path = "file://localhost/Applications/iTunes.app/"
 }
+
+resource "jamfpro_dock_item" "jamfpro_dock_item_GD_002" {
+  name = "tf-demo-dockItem-app-Music-Gd"
+  type = "App"
+  path = "file://localhost/Applications/Music.app/"
+}

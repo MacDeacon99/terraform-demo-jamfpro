@@ -16,3 +16,9 @@
 #   type = "Folder" // App / File / Folder
 #   path = "~/Downloads"
 # }
+
+resource "jamfpro_dock_item" "jamfpro_dock_item_GD_001" {
+  name = "tf-demo-dockItem-app-iTunes-Gd"
+  type = "App"
+  path = "file://localhost/Applications/iTunes.app/"
+}

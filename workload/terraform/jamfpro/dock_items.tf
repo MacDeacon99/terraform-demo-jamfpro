@@ -1,18 +1,18 @@
 
 # resource "jamfpro_dock_item" "jamfpro_dock_item_001" {
-#   name = "tf-gd-ghatest-dockItem-app-chrome"
+#   name = "tf-demo-dockItem-app-iTunes"
 #   type = "App"
-#   path = "file://localhost/Applications/Google Chrome.app/"
+#   path = "file://localhost/Applications/iTunes.app/"
 # }
 
 # resource "jamfpro_dock_item" "jamfpro_dock_item_002" {
-#   name = "tf-gd-ghatest-dockItem-file-important-doc"
+#   name = "tf-demo-dockItem-file-hosts"
 #   type = "File" // App / File / Folder
-#   path = "/downloads/document"
+#   path = "/etc/hosts"
 # }
 
 # resource "jamfpro_dock_item" "jamfpro_dock_item_003" {
-#   name = "tf-gd-ghatest-dockItem-folder-musicFolder"
+#   name = "tf-demo-dockItem-folder-downloadsFolder"
 #   type = "Folder" // App / File / Folder
-#   path = "~/Music"
+#   path = "~/Downloads"
 # }

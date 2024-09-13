@@ -1,15 +1,12 @@
-resource "jamfpro_site" "jamfpro_site_001" {
-  name = "tf-gd-ghatest-site-spain"
-}
+# resource "jamfpro_site" "jamfpro_site_001" {
+#   name = "tf-demo-site-uk"
+# }
 
-resource "jamfpro_site" "jamfpro_site_002" {
-  name = "tf-gd-ghatest-site-holland"
-}
+# resource "jamfpro_site" "jamfpro_site_002" {
+#   name = "tf-demo-site-india"
+# }
 
-resource "jamfpro_site" "jamfpro_site_003" {
-  name = "tf-gd-ghatest-site-italy"
-}
+# resource "jamfpro_site" "jamfpro_site_003" {
+#   name = "tf-demo-site-usa"
+# }
 
-resource "jamfpro_site" "jamfpro_site_004" {
-  name = "tf-gd-ghatest-site-brazil"
-}

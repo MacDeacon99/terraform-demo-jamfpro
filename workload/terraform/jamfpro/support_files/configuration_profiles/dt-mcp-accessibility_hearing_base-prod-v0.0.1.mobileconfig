@@ -56,7 +56,7 @@
 				<key>slowKeyDelay</key>
 				<integer>0</integer>
 				<key>stereoAsMono</key>
-				<true/>
+				<false/>
 				<key>stickyKey</key>
 				<false/>
 				<key>stickyKeyBeepOnModifier</key>

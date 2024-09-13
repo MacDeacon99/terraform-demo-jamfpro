@@ -9,6 +9,16 @@ resource "jamfpro_building" "jamfpro_gd_building_001" {
   country         = "The United States of America"
 }
 
+resource "jamfpro_building" "jamfpro_gd_building_002" {
+  name            = "tf-gd-demo-Gordon-House"
+  street_address1 = "Gordons House"
+  street_address2 = "123"
+  city            = "Glasgow"
+  state_province  = "North Lanarkshire"
+  zip_postal_code = "ML6"
+  country         = "Scotland"
+}
+
 # resource "jamfpro_building" "jamfpro_building_002" {
 #   name            = "tf-demo-jamf-headquarters"
 #   street_address1 = "100 Washington Ave S"

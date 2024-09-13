@@ -90,45 +90,45 @@
 # }
 
 
-# resource "jamfpro_account" "jamf_pro_account_gd_001" {
-#   name                  = "tf-demo-account-custom-privileges-full-access-GD"
-#   directory_user        = false
-#   full_name             = "Gordon Deacon"
-#   password              = "mySecretThing10" // Password must be at least 10 characters long. password not stored in state
-#   email                 = "exampleEmailthing@domain.com"
-#   enabled               = "Enabled"
-#   force_password_change = true
-#   access_level          = "Full Access" // Full Access / Site Access / Group Access
-#   privilege_set         = "Custom"      // "Administrator", "Auditor", "Enrollment Only", "Custom"
+resource "jamfpro_account" "jamf_pro_account_gd_001" {
+  name                  = "tf-demo-account-custom-privileges-full-access-GD"
+  directory_user        = false
+  full_name             = "Gordon Deacon"
+  password              = "mySecretThing10" // Password must be at least 10 characters long. password not stored in state
+  email                 = "exampleEmailthing@domain.com"
+  enabled               = "Enabled"
+  force_password_change = true
+  access_level          = "Full Access" // Full Access / Site Access / Group Access
+  privilege_set         = "Custom"      // "Administrator", "Auditor", "Enrollment Only", "Custom"
 
-#   jss_objects_privileges = [
-#     "Create Categories",
-#     "Read Categories",
-#     "Update Categories",
-#     "Delete Categories",
-#     "Create Directory Bindings",
-#     "Read Directory Bindings",
-#     "Update Directory Bindings",
-#     "Delete Directory Bindings",
-#     "Create Dock Items",
-#     "Read Dock Items",
-#     "Update Dock Items",
-#     "Delete Dock Items",
-#     "Create Packages",
-#     "Read Packages",
-#     "Update Packages",
-#     "Delete Packages",
-#     "Create Printers",
-#     "Read Printers",
-#     "Update Printers",
-#     "Delete Printers",
-#     "Create Scripts",
-#     "Read Scripts",
-#     "Update Scripts",
-#     "Delete Scripts",
-#   ]
-#   jss_settings_privileges = ["Read SSO Settings", "Update User-Initiated Enrollment"]
-#   jss_actions_privileges  = ["Flush Policy Logs"]
-#   casper_admin_privileges = ["Use Casper Admin", "Save With Casper Admin"]
+  jss_objects_privileges = [
+    "Create Categories",
+    "Read Categories",
+    "Update Categories",
+    "Delete Categories",
+    "Create Directory Bindings",
+    "Read Directory Bindings",
+    "Update Directory Bindings",
+    "Delete Directory Bindings",
+    "Create Dock Items",
+    "Read Dock Items",
+    "Update Dock Items",
+    "Delete Dock Items",
+    "Create Packages",
+    "Read Packages",
+    "Update Packages",
+    "Delete Packages",
+    "Create Printers",
+    "Read Printers",
+    "Update Printers",
+    "Delete Printers",
+    "Create Scripts",
+    "Read Scripts",
+    "Update Scripts",
+    "Delete Scripts",
+  ]
+  jss_settings_privileges = ["Read SSO Settings", "Update User-Initiated Enrollment"]
+  jss_actions_privileges  = ["Flush Policy Logs"]
+  casper_admin_privileges = ["Use Casper Admin", "Save With Casper Admin"]
 
-# }
+}

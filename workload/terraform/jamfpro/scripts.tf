@@ -35,3 +35,12 @@
 #   info            = "Update Jamf Pro inventory, assigning the computer record to the currently logged-in user.."
 #   notes           = "Jamf Pro script parameters: none"
 # }
+
+resource "jamfpro_script" "jamfpro_script_GD_003" {
+  name            = "tf-demo-remove-visualStudio-v0.0.1"
+  script_contents = file("${path.module}/support_files/scripts/removeApplication.sh")
+  os_requirements = "15"
+  priority        = "BEFORE"
+  info            = "Deleting Visual Studio Code from Applications Directory."
+  notes           = "Jamf Pro script parameters: none"
+}

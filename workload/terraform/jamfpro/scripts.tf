@@ -1,5 +1,5 @@
 # resource "jamfpro_script" "jamfpro_script_001" {
-#   name            = "tf-ghatest-correct-application-permissions-v1.0"
+#   name            = "tf-demo-correct-application-permissions-v1.0"
 #   script_contents = file("${path.module}/support_files/scripts/Correct Application Permissions.sh")
 #   os_requirements = "13"
 #   priority        = "BEFORE"
@@ -8,21 +8,9 @@
 #   parameter4      = "Google Chrome" // targetApplication
 # }
 
-# data "jamfpro_script" "jamfpro_script_001_data" {
-#   id = jamfpro_script.jamfpro_script_001.id
-# }
-
-# output "jamfpro_script_001_data_id" {
-#   value = data.jamfpro_script.jamfpro_script_001_data.id
-# }
-
-# output "jamfpro_script_001_data_name" {
-#   value = data.jamfpro_script.jamfpro_script_001_data.name
-# }
-
 # resource "jamfpro_script" "jamfpro_script_002" {
-#   name            = "tf-ghatest-encrypt-apfs-volume-v5.0.1"
-#   script_contents = file("${path.module}/support_files/scripts/Encrypt APFS Volume.zsh")
+#   name            = "tf-demo-encrypt-apfs-volume-v5.0.1"
+#   script_contents = file("${path.module}/support_files/scripts/Encrypt_APFS_Volume.zsh")
 #   os_requirements = "13"
 #   priority        = "BEFORE"
 #   info            = "Adds target user or group to specified group membership, or removes said membership."
@@ -30,36 +18,20 @@
 #   parameter4      = "/" // targetVolume
 # }
 
-# data "jamfpro_script" "jamfpro_script_002_data" {
-#   id = jamfpro_script.jamfpro_script_002.id
-# }
-
-# output "jamfpro_script_002_data_id" {
-#   value = data.jamfpro_script.jamfpro_script_002_data.id
-# }
-
-# output "jamfpro_script_002_data_name" {
-#   value = data.jamfpro_script.jamfpro_script_002_data.name
-# }
-
 # resource "jamfpro_script" "jamfpro_script_003" {
-#   name            = "tf-ghatest-reset-safari-v2.1.4"
-#   script_contents = file("${path.module}/support_files/scripts/Reset Safari.sh")
-#   os_requirements = "13"
+#   name            = "tf-demo-reset-safari-v2.1.4"
+#   script_contents = file("${path.module}/support_files/scripts/Reset_Safari.sh")
+#   os_requirements = "15"
 #   priority        = "BEFORE"
 #   info            = "Deleting Safari preference files to reset to system default."
 #   notes           = "Jamf Pro script parameters: none"
-
 # }
 
-# data "jamfpro_script" "jamfpro_script_003_data" {
-#   id = jamfpro_script.jamfpro_script_003.id
-# }
-
-# output "jamfpro_script_003_data_id" {
-#   value = data.jamfpro_script.jamfpro_script_003_data.id
-# }
-
-# output "jamfpro_script_003_data_name" {
-#   value = data.jamfpro_script.jamfpro_script_003_data.name
+# resource "jamfpro_script" "jamfpro_script_004" {
+#   name            = "tf-demo-update-jamf-pro-inventory-and-set-logged-in-user-as-associated-user-v2.1.4"
+#   script_contents = file("${path.module}/support_files/scripts/Update Jamf Pro Inventory and Set Logged-In User as Associated User.sh")
+#   os_requirements = "15"
+#   priority        = "BEFORE"
+#   info            = "Update Jamf Pro inventory, assigning the computer record to the currently logged-in user.."
+#   notes           = "Jamf Pro script parameters: none"
 # }

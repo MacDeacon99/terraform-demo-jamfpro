@@ -7,6 +7,6 @@ resource "jamfpro_site" "jamfpro_site_gd_002" {
 }
 
 resource "jamfpro_site" "jamfpro_site_gd_003" {
-  name = "tf-demo-site-gd-usa"
+  name = "tf-demo-site-gd-uk"
 }
 

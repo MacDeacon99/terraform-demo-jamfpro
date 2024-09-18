@@ -34,3 +34,9 @@ resource "jamfpro_dock_item" "jamfpro_dock_item_GD_003" {
   type = "App"
   path = "file://localhost/Applications/Visual Studio Code.app/"
 }
+
+resource "jamfpro_dock_item" "jamfpro_dock_item_GD_004" {
+  name = "tf-demo-dockItem-app-Notes-Gd"
+  type = "App"
+  path = "file://localhost/Applications/Notes.app/"
+}

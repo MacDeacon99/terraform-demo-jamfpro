@@ -1,0 +1,143 @@
+name: Terraform Apply
+
+on:
+  workflow_call:
+    inputs:
+      tf_cloud_organization:
+        required: true
+        type: string
+      tf_workspace:
+        required: true
+        type: string
+      config_directory:
+        required: true
+        type: string
+      debug:
+        required: false
+        type: boolean
+        default: false
+    outputs:
+      run_id:
+        description: "The ID of the Terraform apply run"
+        value: ${{ jobs.terraform-apply.outputs.run_id }}
+      apply_status:
+        description: "The status of the Terraform apply"
+        value: ${{ jobs.terraform-apply.outputs.apply_status }}
+      configuration_version:
+        description: "The configuration version ID"
+        value: ${{ jobs.terraform-apply.outputs.configuration_version }}
+      workspace_id:
+        description: "The workspace ID"
+        value: ${{ jobs.terraform-apply.outputs.workspace_id }}
+      created_at:
+        description: "The creation time of the run"
+        value: ${{ jobs.terraform-apply.outputs.created_at }}
+      status:
+        description: "The overall status of the run"
+        value: ${{ jobs.terraform-apply.outputs.status }}
+      is_confirmable:
+        description: "Whether the run is confirmable"
+        value: ${{ jobs.terraform-apply.outputs.is_confirmable }}
+      is_cancelable:
+        description: "Whether the run is cancelable"
+        value: ${{ jobs.terraform-apply.outputs.is_cancelable }}
+      plan_only:
+        description: "Whether the run is plan-only"
+        value: ${{ jobs.terraform-apply.outputs.plan_only }}
+      has_changes:
+        description: "Whether the run has changes"
+        value: ${{ jobs.terraform-apply.outputs.has_changes }}
+      terraform_version:
+        description: "The Terraform version used"
+        value: ${{ jobs.terraform-apply.outputs.terraform_version }}
+      source:
+        description: "The source of the run"
+        value: ${{ jobs.terraform-apply.outputs.source }}
+      trigger_reason:
+        description: "The reason for triggering the run"
+        value: ${{ jobs.terraform-apply.outputs.trigger_reason }}
+    secrets:
+      TF_API_TOKEN:
+        required: true
+
+env:
+  CONFIG_DIRECTORY: ${{ inputs.config_directory }}
+  TF_CLOUD_ORGANIZATION: ${{ inputs.tf_cloud_organization }}
+  TF_WORKSPACE: ${{ inputs.tf_workspace }}
+
+jobs:
+  terraform-apply:
+    name: "Terraform Apply"
+    runs-on: ubuntu-latest
+    outputs:
+      run_id: ${{ steps.apply-run.outputs.run_id }}
+      apply_status: ${{ steps.apply.outcome }}
+      configuration_version: ${{ fromJSON(steps.apply-run.outputs.payload).data.relationships.configuration-version.data.id }}
+      workspace_id: ${{ fromJSON(steps.apply-run.outputs.payload).data.relationships.workspace.data.id }}
+      created_at: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.created-at }}
+      status: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.status }}
+      is_confirmable: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.actions.IsConfirmable }}
+      is_cancelable: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.actions.IsCancelable }}
+      plan_only: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.plan-only }}
+      has_changes: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.has-changes }}
+      terraform_version: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.terraform-version }}
+      source: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.source }}
+      trigger_reason: ${{ fromJSON(steps.apply-run.outputs.payload).data.attributes.trigger-reason }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+        
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.10.1
+        with:
+          egress-policy: audit
+
+      - name: Set TF_API_TOKEN as environment variable
+        run: echo "TF_API_TOKEN=${{ secrets.TF_API_TOKEN }}" >> $GITHUB_ENV
+      
+      - name: Verify Terraform Cloud API Token
+        if: ${{ inputs.debug }}
+        run: |
+          if [ -z "$TF_API_TOKEN" ]; then
+            echo "Error: TF_API_TOKEN is not set"
+            exit 1
+          else
+            echo "TF_API_TOKEN is set (value hidden for security)"
+          fi
+      
+      - name: Check Workspace Existence
+        if: ${{ inputs.debug }}
+        run: |
+          response=$(curl -s \
+            --header "Authorization: Bearer ${{ secrets.TF_API_TOKEN }}" \
+            --header "Content-Type: application/vnd.api+json" \
+            "https://app.terraform.io/api/v2/organizations/$TF_CLOUD_ORGANIZATION/workspaces/$TF_WORKSPACE")
+          
+          if echo $response | grep -q "Not found"; then
+            echo "Error: Workspace $TF_WORKSPACE not found in organization $TF_CLOUD_ORGANIZATION"
+            exit 1
+          else
+            echo "Workspace $TF_WORKSPACE exists in organization $TF_CLOUD_ORGANIZATION"
+          fi
+
+      - name: Upload Configuration
+        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.3.1
+        id: apply-upload
+        with:
+          workspace: ${{ env.TF_WORKSPACE }}
+          directory: ${{ env.CONFIG_DIRECTORY }}
+
+      - name: Create Apply Run
+        uses: hashicorp/tfc-workflows-github/actions/create-run@v1.3.1
+        id: apply-run
+        with:
+          workspace: ${{ env.TF_WORKSPACE }}
+          configuration_version: ${{ steps.apply-upload.outputs.configuration_version_id }}
+
+      - name: Apply
+        uses: hashicorp/tfc-workflows-github/actions/apply-run@v1.3.1
+        if: fromJSON(steps.apply-run.outputs.payload).data.attributes.actions.IsConfirmable
+        id: apply
+        with:
+          run: ${{ steps.apply-run.outputs.run_id }}
+          comment: "Apply Run from GitHub Actions CI ${{ github.sha }}"

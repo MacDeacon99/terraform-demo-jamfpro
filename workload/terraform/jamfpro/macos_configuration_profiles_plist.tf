@@ -68,3 +68,59 @@ resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuratio
     all_jss_users = true
   }
 }
+
+resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuration_profile_002" {
+  name                = "GD-Locking-Profile"
+  distribution_method = "Install Automatically"
+  payloads            = file("${path.module}/support_files/configuration_profiles/Locking Profile.mobileconfig")
+  category_id         = -1
+  user_removable      = false
+  level               = "System"
+  redeploy_on_update  = "Newly Assigned"
+  scope {
+    all_computers = true
+    all_jss_users = true
+  }
+}
+
+resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuration_profile_003" {
+  name                = "GD-Restrictions"
+  distribution_method = "Install Automatically"
+  payloads            = file("${path.module}/support_files/Restrictions.mobileconfig")
+  category_id         = -1
+  user_removable      = false
+  level               = "System"
+  redeploy_on_update  = "Newly Assigned"
+  scope {
+    all_computers = true
+    all_jss_users = true
+  }
+}
+
+resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuration_profile_004" {
+  name                = "GD-Software-Update"
+  distribution_method = "Install Automatically"
+  payloads            = file("${path.module}/support_files/configuration_profiles/Software-Update.mobileconfig")
+  category_id         = -1
+  user_removable      = false
+  level               = "System"
+  redeploy_on_update  = "Newly Assigned"
+  scope {
+    all_computers = true
+    all_jss_users = true
+  }
+}
+
+resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuration_profile_005" {
+  name                = "GD-Browser-Config"
+  distribution_method = "Install Automatically"
+  payloads            = file("${path.module}/support_files/configuration_profiles/Browser Config.mobileconfig")
+  category_id         = -1
+  user_removable      = false
+  level               = "System"
+  redeploy_on_update  = "Newly Assigned"
+  scope {
+    all_computers = true
+    all_jss_users = true
+  }
+}

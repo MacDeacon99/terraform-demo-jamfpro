@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>AllowPreReleaseInstallation</key>
+				<true/>
+				<key>AutomaticCheckEnabled</key>
+				<true/>
+				<key>AutomaticDownload</key>
+				<true/>
+				<key>AutomaticallyInstallAppUpdates</key>
+				<true/>
+				<key>AutomaticallyInstallMacOSUpdates</key>
+				<true/>
+				<key>CatalogURL</key>
+				<string/>
+				<key>ConfigDataInstall</key>
+				<true/>
+				<key>CriticalUpdateInstall</key>
+				<true/>
+				<key>PayloadDescription</key>
+				<string/>
+				<key>PayloadDisplayName</key>
+				<string>Software Update</string>
+				<key>PayloadEnabled</key>
+				<true/>
+				<key>PayloadIdentifier</key>
+				<string>E503DA55-128C-47C5-BCBC-F0CBFF1C75ED</string>
+				<key>PayloadOrganization</key>
+				<string>Lloyds Bank</string>
+				<key>PayloadType</key>
+				<string>com.apple.SoftwareUpdate</string>
+				<key>PayloadUUID</key>
+				<string>E503DA55-128C-47C5-BCBC-F0CBFF1C75ED</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+				<key>restrict-software-update-require-admin-to-install</key>
+				<false/>
+			</dict>
+		</array>
+		<key>PayloadDescription</key>
+		<string/>
+		<key>PayloadDisplayName</key>
+		<string>Software Update</string>
+		<key>PayloadEnabled</key>
+		<true/>
+		<key>PayloadIdentifier</key>
+		<string>61BB4A9E-D18D-49A2-8629-E212C064943F</string>
+		<key>PayloadOrganization</key>
+		<string>Lloyds Bank</string>
+		<key>PayloadRemovalDisallowed</key>
+		<true/>
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>61BB4A9E-D18D-49A2-8629-E212C064943F</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+	</dict>
+</plist>

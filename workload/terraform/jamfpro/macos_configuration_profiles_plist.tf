@@ -100,7 +100,7 @@ resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuratio
 resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuration_profile_004" {
   name                = "GD-Software-Update"
   distribution_method = "Install Automatically"
-  payloads            = file("${path.module}/support_files/configuration_profiles/Software-Update.mobileconfig")
+  payloads            = file("${path.module}/support_files/configuration_profiles/Software Update.mobileconfig")
   category_id         = -1
   user_removable      = false
   level               = "System"

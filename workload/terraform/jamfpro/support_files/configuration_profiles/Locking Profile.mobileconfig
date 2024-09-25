@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>PayloadDisplayName</key>
+				<string>Passcode Payload</string>
+				<key>PayloadIdentifier</key>
+				<string>E0EFA6FC-689F-42DD-875B-9A9FAEA981D9</string>
+				<key>PayloadOrganization</key>
+				<string>JAMF Software</string>
+				<key>PayloadType</key>
+				<string>com.apple.mobiledevice.passwordpolicy</string>
+				<key>PayloadUUID</key>
+				<string>E0EFA6FC-689F-42DD-875B-9A9FAEA981D9</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+				<key>forcePIN</key>
+				<true/>
+				<key>maxGracePeriod</key>
+				<integer>0</integer>
+				<key>minLength</key>
+				<integer>8</integer>
+			</dict>
+		</array>
+		<key>PayloadDescription</key>
+		<string/>
+		<key>PayloadDisplayName</key>
+		<string>Locking Profile</string>
+		<key>PayloadEnabled</key>
+		<true/>
+		<key>PayloadIdentifier</key>
+		<string>6D858054-FDD0-4F3D-BA04-F702ABF4EEB8</string>
+		<key>PayloadOrganization</key>
+		<string>Lloyds Bank</string>
+		<key>PayloadRemovalDisallowed</key>
+		<true/>
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>6D858054-FDD0-4F3D-BA04-F702ABF4EEB8</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+	</dict>
+</plist>

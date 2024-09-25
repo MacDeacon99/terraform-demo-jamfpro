@@ -86,7 +86,7 @@ resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuratio
 resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuration_profile_003" {
   name                = "GD-Restrictions"
   distribution_method = "Install Automatically"
-  payloads            = file("${path.module}/support_files/Restrictions.mobileconfig")
+  payloads            = file("${path.module}/support_files/configuration_profiles/Restrictions.mobileconfig")
   category_id         = -1
   user_removable      = false
   level               = "System"

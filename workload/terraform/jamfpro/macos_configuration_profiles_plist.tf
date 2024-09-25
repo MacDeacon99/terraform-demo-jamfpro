@@ -119,8 +119,12 @@ resource "jamfpro_macos_configuration_profile_plist" "jamfpro_macos_configuratio
   user_removable      = false
   level               = "System"
   redeploy_on_update  = "Newly Assigned"
+  
   scope {
-    all_computers = true
-    all_jss_users = true
+    all_computers = false
+    all_jss_users = false
+
+    computer_ids       = [22]
   }
+
 }
